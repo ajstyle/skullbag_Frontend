@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
 import {ApiService} from './service/api.service';
 import { Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
