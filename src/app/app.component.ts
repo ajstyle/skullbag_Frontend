@@ -12,7 +12,6 @@ import { tap, map } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   schoolList$: Observable<any> ;
   show = false;
-  school = { name: null, street: null, subrub : null ,  postcode: null, state: null , studentRegisterd : null };
   schoolName = '' ;
   state = '' ;
   showLoader = true ;
@@ -20,21 +19,28 @@ export class AppComponent implements OnInit {
   constructor(public apiService: ApiService) { }
 
   ngOnInit(): void {
-
-    this.schoolList$ = this.apiService.getSchoolList().pipe(tap(_ => this.showLoader = false ));
+    this.getData() ;
   }
 
-  addSchool(shop) {
-    console.log(shop);
-    this.apiService.addSchool(shop).subscribe(res => {
+  getData() {
+    this.schoolList$ = this.apiService.getSchoolList().pipe(tap(_ => this.showLoader = false ));
+
+  }
+
+  addSchool(schoolObj) {
+    this.showLoader = true ;
+    this.apiService.addSchool(schoolObj).subscribe(res => {
       console.log(res) ;
       if (res) {
+        this.show = false ;
         this.showMessage = true ;
+        this.showLoader = false ;
+
+        this.getData();
         setTimeout(() => {
           this.showMessage = false ;
         }, 3000);
       }
-
     }, error => {
       console.log(error) ;
     });

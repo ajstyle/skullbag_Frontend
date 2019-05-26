@@ -7,13 +7,15 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {SearchPipe} from './pipe/search.pipe' ;
-import {StatePipe} from './pipe/state.pipe' ;
+import {StatePipe} from './pipe/state.pipe';
+import { AddSchoolComponent } from './add-school/add-school.component' ;
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPipe,
-    StatePipe
+    StatePipe,
+    AddSchoolComponent
   ],
   imports: [
     HttpClientModule,

@@ -46,111 +46,11 @@
       </div>
     </div>
     
-    <form #school = 'ngForm'>
-
-      <div class = 'container'*ngIf = 'show'>
-        <div class="card mt-4">
-            <div class="card-header" style = 'text-align : center ; '> <h3>Add New School</h3></div>
-
-            <div class="card-body p-3" >
-      <div class = 'row mt-1'>
-        <div class="col-md-6">
-          <input type = 'text' class = 'form-control' name = 'name' placeholder = 'Enter School Name' [(ngModel)] = 'school.name'  #name = 'ngModel' required >
-          <div *ngIf="name.invalid && (name.dirty || name.touched)"
-          class="alert alert-danger mt-3">
-      
-        <div *ngIf="name.errors.required">
-          School Name is required.
-        </div>
-      </div>
-        </div>
-        <div class="col-md-6">
-            <input type = 'number' class = 'form-control' name = 'registerStudent' placeholder = 'Enter Amount for Register Student'  [(ngModel)] = 'school.studentRegisterd'  #studentRegisterd = 'ngModel' required >
-            <div *ngIf="studentRegisterd.invalid && (studentRegisterd.dirty || studentRegisterd.touched)"
-            class="alert alert-danger mt-3">
-          
-          <div *ngIf="studentRegisterd.errors.required">
-            this field is required.
-          </div>
-        </div>
-          </div>
-              
-      </div>
-      
-      
-      
-      <div class="card mt-3"  ngModelGroup="address" #AddressCtrl="ngModelGroup">
-        <div class="card-body p-4">
-          <h3>Address </h3>
-        <div class="row mt-4">
-          <div class="col-md-6">
-            <input type = 'text' class = 'form-control' name = 'street' placeholder = 'Enter Street Name'  [(ngModel)] = 'school.street'  #street = 'ngModel' required >
-            <div *ngIf="street.invalid && (street.dirty || street.touched)"
-            class="alert alert-danger mt-3">
-          
-          <div *ngIf="street.errors.required">
-            Street is required.
-          </div>
-        </div>
-          </div>
-         
-       
-        <div class="col-md-6">
-          <input type = 'text' class = 'form-control' name = 'subrub' placeholder = 'Enter subrub Name'  [(ngModel)] = 'school.subrub'  #subrub = 'ngModel' required >
-          <div *ngIf="subrub.invalid && (subrub.dirty || subrub.touched)"
-          class="alert alert-danger mt-3">
-        
-        <div *ngIf="subrub.errors.required">
-          Subrub is required.
-        </div>
-      </div>
-        </div>
-      </div>
-        <div class="row mt-2">
-          <div class="col-md-6">
-            <input type = 'text' class = 'form-control' name = 'postcode' placeholder = 'Enter PostCode'  [(ngModel)] = 'school.postcode'  #postcode = 'ngModel' required >
-            <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)"
-            class="alert alert-danger mt-3">
-          
-          <div *ngIf="postcode.errors.required">
-            postcode is required.
-          </div>
-        </div>
-          </div>
-        
-            <div class="col-md-6">
-              <input type = 'text' class = 'form-control' name = 'state' placeholder = 'Enter State Name'  [(ngModel)] = 'school.state'  #state = 'ngModel' required >
-              <div *ngIf="state.invalid && (state.dirty || state.touched)"
-              class="alert alert-danger mt-3">
-            
-            <div *ngIf="state.errors.required">
-              State is required.
-            </div>
-          </div>
-            </div>
-            </div>
-            </div>
-           
-      </div>
-    
-     
-    
-     
-      <div class="row mt-3 center">
-        <div class="col-md-12 ">
-          <button class = 'btn btn-success' [disabled] = 'school.invalid' (click) = 'addSchool(school.value)'>Add School </button>
-      </div>
-      </div>
-    </div>
-  </div>
-    </div>
-
-  
-    
-  </form>
   
    
   </div>
+
+  <app-add-school  [show] = 'show' (schoolObj) = 'addSchool($event)'></app-add-school>
     <div class="container mt-5">
 
    
